@@ -1,0 +1,67 @@
+/**
+ * Footer Styles
+ * 
+ * Clean, simple footer. Nothing excessive.
+ */
+
+.footer {
+  padding: var(--space-8) var(--gutter);
+  position: relative;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left,
+.right {
+  display: flex;
+  align-items: center;
+}
+
+.copyright {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.note {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+/* Decorative line at top */
+.line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-border-strong);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--space-6) var(--gutter);
+  }
+
+  .container {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .copyright {
+    font-size: 0.65rem;
+  }
+
+  .note {
+    display: none;
+  }
+}

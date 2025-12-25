@@ -1,0 +1,122 @@
+/**
+ * Design System Variables
+ * 
+ * Color palette inspired by chemical processes:
+ * - Primary: Deep graphite, reminiscent of carbon structures
+ * - Secondary: Warm oxidized copper tones
+ * - Neutrals: Muted laboratory grays
+ * - Accent: Catalyst amber - the color of reaction initiation
+ * 
+ * Typography follows scientific journal conventions:
+ * tight leading, generous tracking on headings
+ */
+
+:root {
+  /* === Color System === */
+  
+  /* Primary - Carbon graphite tones */
+  --color-primary: #1a1a1a;
+  --color-primary-soft: #2d2d2d;
+  
+  /* Background - Lab notebook off-white */
+  --color-bg: #f7f5f2;
+  --color-bg-alt: #ebe8e3;
+  --color-bg-elevated: #ffffff;
+  
+  /* Text hierarchy */
+  --color-text: #1a1a1a;
+  --color-text-secondary: #5a5a5a;
+  --color-text-tertiary: #8a8a8a;
+  --color-text-inverse: #f7f5f2;
+  
+  /* Accent - Catalyst amber, like heated copper or reaction glow */
+  --color-accent: #c17f4a;
+  --color-accent-hover: #a66b3a;
+  --color-accent-subtle: rgba(193, 127, 74, 0.12);
+  
+  /* Borders and dividers */
+  --color-border: rgba(26, 26, 26, 0.1);
+  --color-border-strong: rgba(26, 26, 26, 0.2);
+  
+  /* === Typography === */
+  
+  /* 
+   * Font stack:
+   * - Display: System geometric sans for headings, clean and modern
+   * - Body: Source Serif 4 (Google Fonts), evokes scientific journals
+   * - Mono: JetBrains Mono for technical details and labels
+   */
+  --font-display: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-body: "Source Serif 4", "Charter", "Georgia", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Consolas", monospace;
+  
+  /* Type scale - modular scale 1.25 */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+  --text-5xl: 3rem;
+  --text-6xl: 3.75rem;
+  
+  /* Line heights */
+  --leading-none: 1;
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+  
+  /* Letter spacing */
+  --tracking-tight: -0.02em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+  
+  /* === Spacing === */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  
+  /* === Layout === */
+  --max-width: 1200px;
+  --content-width: 720px;
+  --gutter: var(--space-6);
+  
+  /* === Transitions === */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+  
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  
+  /* === Z-index scale === */
+  --z-base: 1;
+  --z-overlay: 10;
+  --z-modal: 100;
+  --z-max: 1000;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --gutter: var(--space-4);
+    --text-5xl: 2.5rem;
+    --text-6xl: 3rem;
+  }
+}
+

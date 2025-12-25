@@ -1,0 +1,215 @@
+/**
+ * Hero Styles
+ * 
+ * Asymmetrical grid layout.
+ * Content pushed left, decorative diagram right.
+ * Creates editorial feel rather than startup landing page.
+ */
+
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  padding: var(--space-32) var(--gutter) var(--space-16);
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-right: var(--space-8);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
+}
+
+.name {
+  font-size: var(--text-5xl);
+  font-weight: 500;
+  line-height: var(--leading-none);
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-8);
+}
+
+.surname {
+  color: var(--color-text-secondary);
+}
+
+.description {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 45ch;
+  margin-bottom: var(--space-12);
+}
+
+.status {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.statusLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+}
+
+.statusValue {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+
+/* Decorative phase diagram */
+.diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.15;
+  transition: opacity var(--duration-slow) ease;
+}
+
+.diagram:hover {
+  opacity: 0.25;
+}
+
+.diagramSvg {
+  width: 100%;
+  max-width: 300px;
+}
+
+.axis {
+  stroke: var(--color-text);
+  stroke-width: 1;
+}
+
+.phaseLine {
+  fill: none;
+  stroke: var(--color-text);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+.equilibrium {
+  fill: var(--color-accent);
+}
+
+.axisLabel {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  fill: var(--color-text);
+}
+
+/* Scroll indicator */
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: var(--gutter);
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(
+    to bottom,
+    var(--color-text) 0%,
+    transparent 100%
+  );
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.1);
+  }
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: var(--space-24);
+  }
+
+  .content {
+    padding-right: 0;
+  }
+
+  .diagram {
+    display: none;
+  }
+
+  .name {
+    font-size: var(--text-4xl);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    min-height: calc(100vh - 60px);
+    min-height: calc(100svh - 60px); /* Use small viewport height for mobile */
+    padding-top: var(--space-20);
+    padding-bottom: var(--space-12);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .content {
+    flex: none;
+  }
+
+  .label {
+    font-size: 0.65rem;
+    margin-bottom: var(--space-3);
+  }
+
+  .name {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .description {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-8);
+    max-width: none;
+  }
+
+  .statusValue {
+    font-size: var(--text-xs);
+  }
+
+  .scrollIndicator {
+    display: none;
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .name {
+    font-size: var(--text-2xl);
+  }
+
+  .description {
+    font-size: var(--text-sm);
+  }
+}

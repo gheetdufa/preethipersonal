@@ -1,0 +1,119 @@
+/**
+ * Contact Styles
+ * 
+ * Simple two-part layout.
+ * Links as a structured table, not buttons.
+ */
+
+.section {
+  padding: var(--space-24) var(--gutter);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+.content {
+  padding-right: var(--space-8);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.text {
+  font-size: var(--text-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+  max-width: 40ch;
+}
+
+/* Links grid */
+.links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-4);
+  transition: background-color var(--duration-fast) ease;
+}
+
+.link:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.linkLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+}
+
+.linkValue {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  color: var(--color-text);
+  transition: color var(--duration-fast) ease;
+  word-break: break-word;
+}
+
+.link:hover .linkValue {
+  color: var(--color-accent);
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .content {
+    padding-right: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) var(--gutter);
+  }
+
+  .text {
+    font-size: var(--text-base);
+    max-width: none;
+  }
+
+  .links {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .link {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .link:last-child {
+    border-bottom: none;
+  }
+
+  .linkValue {
+    font-size: var(--text-sm);
+  }
+}

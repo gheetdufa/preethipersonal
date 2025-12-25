@@ -1,0 +1,104 @@
+/**
+ * Navigation Styles
+ * 
+ * Fixed position, blends with page.
+ * Hover states are subtle line underlines, not color changes.
+ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-overlay);
+  padding: var(--space-6) var(--gutter);
+  /* Subtle backdrop blur for depth */
+  background: linear-gradient(
+    to bottom,
+    var(--color-bg) 0%,
+    rgba(247, 245, 242, 0.9) 60%,
+    rgba(247, 245, 242, 0) 100%
+  );
+}
+
+.inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text);
+  transition: color var(--duration-fast) ease;
+}
+
+.name:hover {
+  color: var(--color-accent);
+}
+
+.links {
+  display: flex;
+  gap: var(--space-8);
+}
+
+.link {
+  position: relative;
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  transition: color var(--duration-fast) ease;
+}
+
+.linkText {
+  position: relative;
+}
+
+/* Subtle underline on hover */
+.linkText::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-text);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.link:hover {
+  color: var(--color-text);
+}
+
+.link:hover .linkText::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Mobile: Compact navigation */
+@media (max-width: 768px) {
+  .nav {
+    padding: var(--space-4) var(--gutter);
+  }
+
+  .name {
+    font-size: var(--text-xs);
+    letter-spacing: var(--tracking-normal);
+  }
+
+  .links {
+    gap: var(--space-4);
+  }
+
+  .link {
+    font-size: var(--text-xs);
+  }
+}

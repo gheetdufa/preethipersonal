@@ -1,0 +1,185 @@
+/**
+ * About Styles
+ * 
+ * Two-column layout: prose left, structured data right.
+ * Clean, analytical presentation.
+ */
+
+.section {
+  padding: var(--space-24) var(--gutter);
+  background-color: var(--color-bg-alt);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+}
+
+/* Text content */
+.content {
+  padding-right: var(--space-8);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-8);
+}
+
+.bio {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.bio p {
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+/* Structured data visualization */
+.data {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.dataLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+/* Competency bars */
+.competencies {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.competencyRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.competencyName {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  width: 180px;
+  flex-shrink: 0;
+}
+
+.competencyBar {
+  flex: 1;
+  height: 4px;
+  background-color: var(--color-border);
+  position: relative;
+  overflow: hidden;
+}
+
+.competencyFill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--color-accent);
+  transform-origin: left;
+}
+
+/* Tools grid */
+.tools {
+  display: flex;
+  flex-direction: column;
+}
+
+.toolsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-4);
+}
+
+.tool {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-secondary);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--color-border);
+  transition: all var(--duration-fast) ease;
+}
+
+.tool:hover {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .content {
+    padding-right: 0;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) var(--gutter);
+  }
+
+  .title {
+    margin-bottom: var(--space-6);
+  }
+
+  .bio {
+    gap: var(--space-4);
+  }
+
+  .bio p {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .data {
+    gap: var(--space-8);
+  }
+
+  .competencyRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .competencyName {
+    width: 100%;
+    font-size: var(--text-xs);
+  }
+
+  .competencyBar {
+    width: 100%;
+  }
+
+  .toolsGrid {
+    gap: var(--space-2);
+  }
+
+  .tool {
+    font-size: 0.65rem;
+    padding: var(--space-1) var(--space-2);
+  }
+}

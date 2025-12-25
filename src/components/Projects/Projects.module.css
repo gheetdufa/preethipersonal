@@ -1,0 +1,328 @@
+/**
+ * Projects Styles
+ * 
+ * List layout, not cards.
+ * Each project is a row that expands to reveal details.
+ * No drop shadows, no hover lifts - just subtle line treatments.
+ */
+
+.section {
+  padding: var(--space-20) var(--gutter);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: var(--space-16);
+}
+
+.title {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+  margin-bottom: var(--space-4);
+}
+
+.subtitle {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  max-width: 50ch;
+}
+
+/* Project list */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Individual project row */
+.project {
+  border-top: 1px solid var(--color-border);
+}
+
+.project:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+/* Hover state - subtle background shift */
+.project:hover {
+  background-color: var(--color-bg-alt);
+}
+
+.expanded {
+  background-color: var(--color-bg-elevated);
+}
+
+/* Clickable header */
+.projectHeader {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 180px 1fr 24px;
+  gap: var(--space-8);
+  align-items: start;
+  padding: var(--space-6) 0;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--duration-fast) ease;
+}
+
+.projectHeader:focus-visible {
+  outline: none;
+  background-color: var(--color-accent-subtle);
+}
+
+/* Meta column - period and domains */
+.projectMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.projectPeriod {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.projectDomains {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.domain {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+}
+
+/* Main content - title and abstract */
+.projectMain {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.projectTitle {
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--color-text);
+  transition: color var(--duration-fast) ease;
+}
+
+.project:hover .projectTitle {
+  color: var(--color-accent);
+}
+
+.projectAbstract {
+  font-size: var(--text-base);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+}
+
+/* Expand indicator - plus sign made with lines */
+.expandIndicator {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  margin-top: var(--space-2);
+  flex-shrink: 0;
+}
+
+.expandLine {
+  position: absolute;
+  background-color: var(--color-text-tertiary);
+  transition: all var(--duration-normal) var(--ease-out-expo);
+}
+
+.horizontal {
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+.vertical {
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100%;
+  transform: translateX(-50%);
+}
+
+.vertical.hidden {
+  transform: translateX(-50%) scaleY(0);
+}
+
+.project:hover .expandLine {
+  background-color: var(--color-text);
+}
+
+/* Expanded content area */
+.projectContent {
+  overflow: hidden;
+}
+
+.contentInner {
+  padding: var(--space-4) 0 var(--space-8);
+  padding-left: calc(180px + var(--space-8)); /* Align with main content */
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8) var(--space-12);
+}
+
+.contentBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.contentLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wider);
+  color: var(--color-text-tertiary);
+}
+
+.contentText {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text);
+}
+
+.constraintsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.constraint {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  padding-left: var(--space-3);
+  position: relative;
+}
+
+/* Bullet point as a small dash */
+.constraint::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-tertiary);
+}
+
+/* Link to more details */
+.projectLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  font-family: var(--font-display);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  transition: color var(--duration-fast) ease;
+}
+
+.projectLink:hover {
+  color: var(--color-accent);
+}
+
+.linkArrow {
+  transition: transform var(--duration-normal) var(--ease-out-expo);
+}
+
+.projectLink:hover .linkArrow {
+  transform: translateX(4px);
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+  .projectHeader {
+    grid-template-columns: 1fr auto;
+  }
+
+  .projectMeta {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-4);
+    margin-bottom: var(--space-2);
+  }
+
+  .projectMain {
+    grid-column: 1;
+  }
+
+  .contentInner {
+    padding-left: 0;
+  }
+
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-12) var(--gutter);
+  }
+
+  .header {
+    margin-bottom: var(--space-10);
+  }
+
+  .subtitle {
+    font-size: var(--text-base);
+  }
+
+  .projectHeader {
+    padding: var(--space-4) 0;
+    gap: var(--space-4);
+  }
+
+  .projectMeta {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+
+  .projectTitle {
+    font-size: var(--text-lg);
+  }
+
+  .projectAbstract {
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+  }
+
+  .contentInner {
+    padding: var(--space-3) 0 var(--space-6);
+  }
+
+  .contentGrid {
+    gap: var(--space-6);
+  }
+
+  .contentText {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Small mobile */
+@media (max-width: 380px) {
+  .projectTitle {
+    font-size: var(--text-base);
+  }
+
+  .domain {
+    font-size: 0.65rem;
+  }
+}

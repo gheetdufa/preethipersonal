@@ -1,0 +1,100 @@
+/**
+ * IntroAnimation Styles
+ * 
+ * Minimal, purposeful styling.
+ * The animation does the work, CSS just sets the stage.
+ */
+
+.container {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-max);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-bg);
+}
+
+/* Subtle grid pattern - evokes graph paper, lab notebooks, phase diagrams */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  opacity: 0.4;
+}
+
+/* Decorative fragments that converge */
+.fragments {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.fragment {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--color-text-tertiary);
+  border-radius: 50%;
+}
+
+/* Name container - holds the scattered/resolved letters */
+.nameContainer {
+  display: flex;
+  gap: var(--space-1);
+  position: relative;
+  z-index: 2;
+}
+
+.letter {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+  display: inline-block;
+}
+
+/* Equilibrium line - underlines the full name */
+.equilibriumLine {
+  width: 240px;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform-origin: center;
+  margin-top: var(--space-4);
+  position: relative;
+  z-index: 2;
+}
+
+@media (max-width: 768px) {
+  .letter {
+    font-size: var(--text-2xl);
+    letter-spacing: 0.1em;
+  }
+
+  .equilibriumLine {
+    width: 160px;
+    margin-top: var(--space-3);
+  }
+
+  .grid {
+    background-size: 40px 40px;
+  }
+}
+
+@media (max-width: 380px) {
+  .letter {
+    font-size: var(--text-xl);
+  }
+
+  .equilibriumLine {
+    width: 130px;
+  }
+}

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- 
+    Favicon: Abstract molecular bond / equilibrium symbol
+    Simple geometric forms, no generic icon pack aesthetics
+  -->
+  <rect width="32" height="32" fill="#f7f5f2"/>
+  
+  <!-- Two connected nodes - like a diatomic molecule or bond -->
+  <circle cx="10" cy="16" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  <circle cx="22" cy="16" r="5" fill="none" stroke="#1a1a1a" stroke-width="1.5"/>
+  
+  <!-- Bond line -->
+  <line x1="15" y1="16" x2="17" y2="16" stroke="#1a1a1a" stroke-width="1.5"/>
+  
+  <!-- Accent dot - catalyst -->
+  <circle cx="16" cy="16" r="2" fill="#c17f4a"/>
+</svg>
+
